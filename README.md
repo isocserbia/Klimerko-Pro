@@ -21,8 +21,35 @@ Photos of the complete device are available in the [photos folder](/extras/photo
 The latest hardware revision of Klimerko Pro PCB is v1.1.1.  
 
 
-<!-- # Table of Contents
-Coming soon. -->
+# Table of contents
+
+- [Overview](#overview)
+  - [Data](#data)
+    - [Sensor Data Collection](#sensor-data-collection)
+    - [Sensor Data Averaging](#sensor-data-averaging)
+    - [Sensor Data Publishing](#sensor-data-publishing)
+    - [Metadata](#metadata)
+  - [WiFi Configuration Mode](#wifi-configuration-mode)
+  - [Over-The-Air (OTA) Firmware Updates](#over-the-air-ota-firmware-updates)
+    - [Automatic OTA Updates](#automatic-ota-updates)
+    - [Manual OTA Updates](#manual-ota-updates)
+  - [Sensor Warm-Up](#sensor-warm-up)
+  - [Sensor Zeroing](#sensor-zeroing)
+  - [LED Light](#led-light)
+  - [Device behavior when a sensor failed or is missing](#device-behavior-when-a-sensor-failed-or-is-missing)
+    - [If a sensor is not installed](#if-a-sensor-is-not-installed)
+    - [If a sensor is removed or fails during operation](#if-a-sensor-is-removed-or-fails-during-operation)
+    - [If a sensor comes back online during operation](#if-a-sensor-comes-back-online-during-operation)
+    - [If you replace the sensor during operation (only applies to DGS-SO2 and DGS-NO2)](#if-you-replace-the-sensor-during-operation-only-applies-to-dgs-so2-and-dgs-no2)
+  - [Libraries Used](#libraries-used)
+- [Configuration and Usage](#configuration-and-usage)
+  - [Flashing Firmware via Serial](#flashing-firmware-via-serial)
+  - [Flashing Firmware via OTA](#flashing-firmware-via-ota)
+  - [Entering WiFi Configuration Mode](#entering-wifi-configuration-mode)
+  - [Connecting Klimerko Pro to WiFi](#connecting-klimerko-pro-to-wifi)
+  - [Connecting Klimerko Pro to the platform](#connecting-klimerko-pro-to-the-platform)
+  - [Resetting WiFi Credentials](#resetting-wifi-credentials)
+  - [Zeroing Sensors](#zeroing-sensors)
 
 # Overview
 This part of the README goes in detail on how the device works and explains its internal logic.  
