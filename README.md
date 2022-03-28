@@ -315,13 +315,12 @@ The procedure is as follows:
 In case you want/need to flash Klimerko Pro manually without establishing a physical connection to it, you can do so using the WiFi Configuration Mode:
 
 1. Make sure the firmware you're going to upload is present on the device you're using to connect to the device.
-2. [Enter WiFi Configuration Mode](#entering-wifi-configuration-mode).
-3. Connect to your Klimerko Pro device using WiFi.
-4. Once the WiFi Configuration Portal opens, go to "Info".
-5. Find and click the "Update" button (bottom of the page).
-6. Click "Choose File" and choose the **.bin** file you wish to flash the Klimerko Pro with.
-7. Once you've selected the file, click the red "Update" button and wait for the firmware to be uploaded to Klimerko Pro.
-8. Once the firmware is uploaded, Klimerko Pro will reboot and it will be running the firmware you uploaded to it.
+2. [Enter WiFi Configuration Mode](#entering-wifi-configuration-mode) and connect to Klimerko Pro
+3. Once the WiFi Configuration Portal opens, go to "Info".
+4. Find and click the "Update" button (bottom of the page).
+5. Click "Choose File" and choose the **.bin** file you wish to flash the Klimerko Pro with.
+6. Once you've selected the file, click the red "Update" button and wait for the firmware to be uploaded to Klimerko Pro.
+7. Once the firmware is uploaded, Klimerko Pro will reboot and it will be running the firmware you uploaded to it.
 
 
 ## Entering WiFi Configuration Mode
