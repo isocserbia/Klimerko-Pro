@@ -9,6 +9,7 @@ Klimerko Pro is a "non-DIY" variant of the [original Klimerko Air Quality Monito
 - Uses ESP32 instead of ESP8266
 - USB-C
 - Redesigned housing
+- PlatformIO instead of Arduino IDE
 - Uses RockIoT Platform
   
 > Klimerko Pro aims to be as simple as possible for the end user. As such, it isn't a device that's as easy to build as the original Klimerko was, nor does it aim to be.  
@@ -54,6 +55,12 @@ The latest hardware revision of Klimerko Pro PCB is v1.1.1.
 # Overview
 This part of the README goes in detail on how the device works and explains its internal logic.  
 Skip to [Configuration and Usage](#configuration-and-usage) to get to practical stuff.
+
+*Klimerko Pro with bottom cover open, showing the DGS-NO2 and DGS-SO2 sensors.* | *Back side showing the unique serial number and the PCB from the back.*
+| - | - |
+![Klimerko Pro Photo 3](/extras/photos/3.jpeg) | ![Klimerko Pro Photo 5](/extras/photos/5.jpeg)  
+
+
 
 ## Data
 ### Sensor Data Collection
@@ -240,7 +247,7 @@ Klimerko Pro PCB is equipped with an RGB LED that is meant to help you understan
 Klimerko Pro can handle situations where there's a sensor missing. It will work and report metadata even if there's no sensors connected at all - though that would be an extreme situation. 
 
 Klimerko Pro is fully aware of all the sensors connected to it and is able to initialize and deinitialize sensors on the fly (during runtime) without any service interruption or reboots (though it is not recommended to replace sensors while the device is in operation).  
-This feature exists for cases where the connection between the main PCB and the sensors isn't stable (corrosion, not plugged all the way in, damage during transport, etc) as well as cases when it's not possible to obtain all the sensors (*cough* chip shortage *cough*).  
+This feature exists for cases where the connection between the main PCB and the sensors isn't stable (corrosion, not plugged all the way in, damage during transport, etc) as well as cases when it's not possible to obtain all the sensors.  
 As stated in [Metadata reporting](#metadata), Klimerko Pro reports the state of each sensor.  
 The following explains how the device functions in these situations:  
 
