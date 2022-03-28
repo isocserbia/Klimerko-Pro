@@ -72,8 +72,8 @@ bool           metadataPublishBootDone      = false; // If the initial metadata 
 unsigned long  metadataLastPublish;
 
 // -------------------------- Firmware Update (GitHub) -------------------------------------
-const String   firmwareVersion                  = "0.9.7";
-const char*    firmwareVersionPortal            =  "<p>Firmware Version: 0.9.7</p>";
+const String   firmwareVersion                  = "0.9.8";
+const char*    firmwareVersionPortal            =  "<p>Firmware Version: 0.9.8</p>";
 int            firmwareUpdateCheckInterval      = 5400; // [5400 = 1.5h] Seconds between firmware update checks
 unsigned long  firmwareUpdateLastCheck          = firmwareUpdateCheckInterval * 1000; // So that it checks right at boot time
 const String   firmwareUpdateFirmwareURL        = "https://raw.githubusercontent.com/isocserbia/Klimerko-Pro/main/firmware/firmware.bin";
@@ -1130,10 +1130,15 @@ void firmwareUpdateError(int error) {
   preferences.end();
 }
 
-void firmwareUpdate() {
-  spln("[OTA] Running Firmware Update... >>>> DO NOT POWER OFF THE DEVICE <<<<");
+void firmwareUpdate(bool forced) { // Using argument "true" will force a firmware update - will not check firmware version and TLS
   WiFiClientSecure firmwareNetworkClient;
-  firmwareNetworkClient.setCACert(fwRootCACertificate);
+  if (forced) {
+    spln("[OTA] Running Forced Firmware Update... >>>> DO NOT POWER OFF THE DEVICE <<<<");
+    firmwareNetworkClient.setInsecure();
+  } else {
+    spln("[OTA] Running Firmware Update... >>>> DO NOT POWER OFF THE DEVICE <<<<");
+    firmwareNetworkClient.setCACert(fwRootCACertificate);
+  }
   httpUpdate.onStart(firmwareUpdateStarted);
   httpUpdate.onEnd(firmwareUpdateFinished);
   httpUpdate.onProgress(firmwareUpdateProgress);
@@ -1203,7 +1208,7 @@ bool firmwareUpdateCheck() {
 void firmwareUpdateLoop() {
   if (millis() - firmwareUpdateLastCheck >= firmwareUpdateCheckInterval * 1000) {
     if (firmwareUpdateCheck()) {
-      firmwareUpdate();
+      firmwareUpdate(false); // Update the firmware normally (not forced)
     }
     firmwareUpdateLastCheck = millis();
   }
@@ -1471,6 +1476,10 @@ void mqttCallback(char* p_topic, byte* p_payload, unsigned int p_length) {
     if (doc["data"]["identify_device"] == true) {
       spln("Blinking the LED Green to Identify Device (Same green flash as when device is connected)...");
       rgbEffect_GreenBlink = true;
+    }
+    if (doc["data"]["force_ota_update"] == true) {
+      spln("Forcing the download & installation of the newest firmware available for Klimerko Pro...");
+      firmwareUpdate(true); // Force the firmware update
     }
   }
 }
