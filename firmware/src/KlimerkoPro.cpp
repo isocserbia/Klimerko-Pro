@@ -77,7 +77,7 @@ const char*    firmwareVersionPortal            =  "<p>Firmware Version: 0.9.7</
 int            firmwareUpdateCheckInterval      = 5400; // [5400 = 1.5h] Seconds between firmware update checks
 unsigned long  firmwareUpdateLastCheck          = firmwareUpdateCheckInterval * 1000; // So that it checks right at boot time
 const String   firmwareUpdateFirmwareURL        = "https://raw.githubusercontent.com/isocserbia/Klimerko-Pro/firmware/firmware.bin";
-const String   firmwareUpdateFirmwareVersionURL = "https://raw.githubusercontent.com/isocserbia/Klimerko-Pro/firmware/firmware-version.txt";
+const String   firmwareUpdateFirmwareVersionURL = "https://raw.githubusercontent.com/isocserbia/Klimerko-Pro/firmware/firmware-version";
 
 // For preferences library, to keep track of failed/successful updates
 String         lastSuccessfulOTA;
